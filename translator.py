@@ -1,13 +1,14 @@
+import dictionary as Dictionary
 class Translator:
-
-    def __init__(self):
+    def __init__(self, dict = Dictionary()):
+        self._dict = dict
         pass
 
     def printMenu(self):
-        # 1. Aggiungi nuova parola
-        # 2. Cerca una traduzione
-        # 3. Cerca con wildcard
-        # 4. Exit
+        print("-----------------------------\n"
+              "   Translator Alien-Italian\n-----------------------------\n1. Aggiungi nuova parola"
+              "\n2. Cerca una traduzione\n3. Cerca con wildcard\n4. Stampa tutto il dizionario\n"
+              "5. Exit\n-----------------------------\n")
         pass
 
     def loadDictionary(self, dict):
@@ -25,3 +26,5 @@ class Translator:
     def handleWildCard(self,query):
         # query is a string with a ? --> <par?la_aliena>
         pass
+    def printAll(self):
+        self._dict.printAll()
