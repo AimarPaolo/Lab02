@@ -7,10 +7,10 @@ while(True):
 
     t.printMenu()
 
-    t.loadDictionary("filename.txt")
-    t.printMenu()
-    txtIn = input()
-
+    try:
+        txtIn = input()
+    except:
+        raise ValueError
     # Add input control here!
 
     if int(txtIn) == 1:

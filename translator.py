@@ -1,8 +1,10 @@
+import dictionary
 import dictionary as Dictionary
+
+
 class Translator:
-    def __init__(self, dict = Dictionary()):
-        self._dict = dict
-        pass
+    def __init__(self, dictionary = Dictionary.Dictionary()):
+        self.dictionary = dictionary
 
     def printMenu(self):
         print("-----------------------------\n"
@@ -11,8 +13,8 @@ class Translator:
               "5. Exit\n-----------------------------\n")
         pass
 
-    def loadDictionary(self, dict):
-        # dict is a string with the filename of the dictionary
+    def loadDictionary(self, txtDict):
+        self.dictionary.loadDictionary(txtDict)
         pass
 
     def handleAdd(self, entry):
@@ -23,8 +25,9 @@ class Translator:
         # query is a string <parola_aliena>
         pass
 
-    def handleWildCard(self,query):
+    def handleWildCard(self, query):
         # query is a string with a ? --> <par?la_aliena>
         pass
+
     def printAll(self):
         self._dict.printAll()
