@@ -9,7 +9,16 @@ class Dictionary:
                 key_value = line.strip().split()
                 if len(key_value) == 2:
                     self._dictionary[key_value[0]] = key_value[1]
-        return self._dictionary
+                else:
+                    prevVal = self._dictionary.get(key_value[0])
+                    if isinstance(prevVal, str):
+                        currentVal = []
+                        currentVal.append(prevVal)
+                    else:
+                        currentVal = self._dictionary.get(key_value[0])
+                    print(currentVal)
+                    self._dictionary[key_value[0]] = [*currentVal, key_value[1]]
+                    print(self._dictionary[key_value[0]])
 
     def addWord(self, tupla):
         cont = 0
@@ -18,8 +27,28 @@ class Dictionary:
             for riga in self._dictionary:
                 f.write(f"{riga} {self._dictionary[riga]}\n")
 
-    def translate(self):
-        pass
+    def translate(self, query):
+        return self._dictionary[query]
 
-    def translateWordWildCard(self):
-        pass
+    def translateWordWildCard(self, parola):
+        lista = []
+        if '?' in parola:
+            indice = parola.find("?")
+            parola.replace('?', "")
+            for keys in self._dictionary:
+                templ = keys
+                keys = list(templ)
+                if indice >= len(keys):
+                    pass
+                else:
+                    keys[indice] = '?'
+                    keys = ''.join(keys)
+                    keys.replace('?', "")
+                    if keys.__eq__(parola):
+                        lista.append(self._dictionary[templ])
+        else:
+            lista.append(self.translate(parola))
+        return lista
+    def printAll(self):
+        for keys in self._dictionary:
+            print(f"{keys} : {self._dictionary[keys]}")

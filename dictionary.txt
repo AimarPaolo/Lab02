@@ -107,3 +107,5 @@ kynä penna
 paperi carta
 paro papera
 pad paddle
+alieno andrea
+alinno mario
