@@ -2,24 +2,31 @@ import translator as tr
 
 t = tr.Translator()
 
-
-while(True):
+while True:
 
     t.printMenu()
 
-    t.loadDictionary("filename.txt")
+    t.loadDictionary("dictionary.txt")
 
     txtIn = input()
 
     # Add input control here!
 
     if int(txtIn) == 1:
-        print()
+        tupla = tuple
+        print("Inserire la parola che si vuole aggiungere:")
         txtIn = input()
-        pass
+        try:
+            tupla = (txtIn.split(" ")[0], txtIn.split(" ")[1])
+        except:
+            print("errore")
+            continue
+        t.handleAdd(tupla)
+        print("nuova tupla aggiunta: ", tupla)
+        continue
     if int(txtIn) == 2:
-        pass
+        continue
     if int(txtIn) == 3:
-        pass
+        continue
     if int(txtIn) == 4:
         break
